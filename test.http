@@ -22,9 +22,4 @@ x-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImtlbmFucyJ9.4NDdK2
 
 ###
 
-POST http://127.0.0.1:8000/my_site/api/visit HTTP/1.1
-Content-Type: application/json
-
-{  
-    "page": "http://127.0.0.1/my_site/xxx" 
-}
+GET http://127.0.0.1:8000/my_site/api/visit?page=/home HTTP/1.1

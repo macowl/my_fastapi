@@ -27,3 +27,12 @@ StandardError=journal
 WantedBy=multi-user.target
 
 systemctl restart --user my_fastapi
+
+
+
+访问该页面加访问数    /api/visit      需要参数页面路径,详情看test.http
+统计用户访问量总览  /my_site        可视化
+统计用户访问量总览  /api/stats      返回json
+统计单个页面的访问量    /api/stats/{page_path:path}
+
+

@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from fastapi import  Request, Depends, APIRouter
+from fastapi import  Request, Depends, APIRouter,Query
 from fastapi.responses import HTMLResponse
 from db import get_db
 from .models import *
@@ -13,14 +13,10 @@ class VisitBody(BaseModel):
 
 router = APIRouter()
 
-@router.post("/api/visit")
+@router.get("/api/visit")
 def record_visit(
-    body: VisitBody,
     request: Request,
-    db: Session = Depends(get_db),
-):
-    """前端每次加载页面时调用这个接口，自动计数+1"""
-    page = body.page
+    db: Session = Depends(get_db),page: str = Query(..., description="页面地址")):
     today = datetime.now().strftime("%Y-%m-%d")
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     client_ip = request.client.host if request.client else "unknown"
