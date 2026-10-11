@@ -25,3 +25,5 @@ StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
+
+systemctl restart --user my_fastapi
